@@ -13,3 +13,5 @@ size_t htab_hash_function(const char *str) {
         h = 65599*h + *p;
     return h;
 }
+
+

@@ -7,8 +7,7 @@
 
 void htab_resize(htab_t *table, size_t newn)
 {
-    if (newn <= table->arr_size)
-        return;
+
 
 
 
