@@ -19,7 +19,7 @@ struct htab
 {
     size_t size;
     size_t arr_size;
-    size_t *arr_ptr[];
+    struct htab_item *arr_ptr[];
 };
 
 #endif //UNTITLED2_HTAB_PR_H
