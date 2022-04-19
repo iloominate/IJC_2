@@ -34,29 +34,16 @@ htab_pair_t * htab_lookup_add(htab_t * table, htab_key_t key)
     {
         struct htab_item *tmp;
         tmp = table->arr_ptr[index];
+
         while ( tmp->next != NULL)
-        {
-            if (tmp->pair.key == key)
-            {
-                tmp->pair.value++;
-                return &tmp->pair;
-            }
-
             tmp = tmp->next;
-            counter++;
-            if (counter > AVG_LEN_MAX)
-                htab_resize(table, table->size*2);
-        }
+        table->size++;
 
-        counter++;
-        if (counter > AVG_LEN_MAX)
-            htab_resize(table, table->size*2);
+        if ((table->size / table->arr_size) > AVG_LEN_MAX )
+            htab_resize(table, table->arr_size*2);
 
-        if (tmp->pair.key != key)
-        {
-            table->size++;
-            tmp->next = new_item;
-            return &new_item->pair;
-        }
+        tmp->next = new_item;
+
+        return &new_item->pair;
     }
 }
