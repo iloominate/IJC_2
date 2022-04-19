@@ -5,6 +5,7 @@
 #include "htab.h"
 #include "htab_pr.h"
 #include "malloc.h"
+#include <math.h>
 
 bool htab_erase(htab_t * table, htab_key_t key)
 {
@@ -22,6 +23,8 @@ bool htab_erase(htab_t * table, htab_key_t key)
         table->size--;
         free((char *) item->pair.key);
         free(item);
+        if ((table->size / table->arr_size) < AVG_LEN_MIN)
+            htab_resize(table, table->size / 2);
         return true;
     } else
     {
@@ -34,6 +37,8 @@ bool htab_erase(htab_t * table, htab_key_t key)
                 table->size--;
                 free((char *) item->pair.key);
                 free(item);
+                if ((table->size / table->arr_size) < AVG_LEN_MIN)
+                    htab_resize(table, table->size / 2);
                 return true;
             }
             item_tmp = item;
