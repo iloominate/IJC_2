@@ -48,9 +48,13 @@ htab_pair_t * htab_lookup_add(htab_t * table, htab_key_t key)
                 htab_resize(table, table->size*2);
         }
 
+        counter++;
+        if (counter > AVG_LEN_MAX)
+            htab_resize(table, table->size*2);
+
         if (tmp->pair.key != key)
         {
-            counter++;
+            table->size++;
             tmp->next = new_item;
             return &new_item->pair;
         }
