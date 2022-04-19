@@ -54,16 +54,5 @@ htab_pair_t * htab_lookup_add(htab_t * table, htab_key_t key)
             tmp->next = new_item;
             return &new_item->pair;
         }
-
     }
-
-
-
-
-
-
-
-    if (table->arr_ptr[index] == NULL)
-
-
 }
