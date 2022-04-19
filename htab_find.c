@@ -9,6 +9,7 @@
 htab_pair_t * htab_find(htab_t * table, htab_key_t key)
 {
 
+
     for (int i = 0; i < table->arr_size; i++)
     {
         struct htab_item *tmp_item = table->arr_ptr[i];
