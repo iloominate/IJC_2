@@ -7,6 +7,8 @@
 
 
 #include "htab.h"
+#define AVG_LEN_MAX 4
+#define AVG_LEN_MIN 1
 
 struct htab_item
 {

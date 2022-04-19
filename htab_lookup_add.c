@@ -9,7 +9,7 @@
 #include <stdio.h>
 #include <strings.h>
 #include <malloc.h>
-#define AVG_LEN_MAX 5
+
 htab_pair_t * htab_lookup_add(htab_t * table, htab_key_t key)
 {
     int counter = 0;
