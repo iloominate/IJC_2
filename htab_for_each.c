@@ -1,6 +1,7 @@
-//
-// Created by aliakseiklimau on 4/19/22.
-//
+// htab_for_each.c
+// IJC-DU2, 20.04.2022
+// Author: Aliaksei Klimau, FIT
+// Compiled: gcc 7.5.0
 
 #include "htab_pr.h"
 #include "htab.h"
@@ -13,7 +14,7 @@ void htab_for_each(const htab_t * table, void (*f)(htab_pair_t *data))
 
         while (tmp_item != NULL)
         {
-            (*f)(&tmp_item->pair);
+            (*f)(tmp_item->pair);
             tmp_item = tmp_item->next;
         }
     }

@@ -1,3 +1,8 @@
+// tail.c
+// IJC-DU2, 20.04.2022
+// Author: Aliaksei Klimau, FIT
+// Compiled: gcc 7.5.0
+
 #include <stdio.h>
 #include "stdlib.h"
 #include "stdbool.h"

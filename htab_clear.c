@@ -1,6 +1,7 @@
-//
-// Created by aliakseiklimau on 4/19/22.
-//
+// htab_clear.c
+// IJC-DU2, 20.04.2022
+// Author: Aliaksei Klimau, FIT
+// Compiled: gcc 7.5.0
 
 #include "htab.h"
 #include "htab_pr.h"
@@ -16,7 +17,8 @@ void htab_clear(htab_t * table){
         {
             clear_item = curr_item;
             curr_item = curr_item->next;
-            free((char*)clear_item->pair.key);
+            free((char*)clear_item->pair->key);
+            free(clear_item->pair);
             free(clear_item);
         }
         table->arr_ptr[i] = NULL;

@@ -1,6 +1,7 @@
-//
-// Created by aliakseiklimau on 4/19/22.
-//
+// io.c
+// IJC-DU2, 20.04.2022
+// Author: Aliaksei Klimau, FIT
+// Compiled: gcc 7.5.0
 
 
 #include "io.h"
@@ -24,7 +25,7 @@ int read_word(char *s, int max, FILE *f) {
     if (c == EOF)
         return EOF;
 
-    s[c_counter + 1] = c_counter;
+    s[c_counter++] = c;
 
     while (c_counter < max - 1) {
         c = fgetc(f);

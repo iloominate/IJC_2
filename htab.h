@@ -44,5 +44,6 @@ void htab_for_each(const htab_t * t, void (*f)(htab_pair_t *data));
 
 void htab_clear(htab_t * t);    // ruší všechny záznamy
 void htab_free(htab_t * t);     // destruktor tabulky
+void htab_print_t (htab_pair_t *pair);  // print pair
 
 #endif // __HTAB_H__

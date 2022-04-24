@@ -1,6 +1,7 @@
-//
-// Created by aliakseiklimau on 4/16/22.
-//
+// wordcount.c
+// IJC-DU2, 20.04.2022
+// Author: Aliaksei Klimau, FIT
+// Compiled: gcc 7.5.0
 
 #include "htab.h"
 #include "htab_pr.h"
@@ -58,22 +59,10 @@ int main (void)
             return 1;
         }
         pair->value++;
+        printf("%s\t%d\n", pair->key, pair->value);
     }
-    for (int i = 0; i < table->arr_size; i++)
-    {
-        struct htab_item *item_tmp = table->arr_ptr[i];
-        if (item_tmp)
-        {
-            while (item_tmp)
-            {
-                printf("%s\t%d\n", table->arr_ptr[i]->pair.key, table->arr_ptr[i]->pair.value);
-                if(item_tmp->next != NULL)
-                    item_tmp=item_tmp->next;
-                else
-                    break;
-            }
-        }
-    }
+
+    htab_for_each(table, htab_print_t);
 
     htab_free(table);
     return 0;

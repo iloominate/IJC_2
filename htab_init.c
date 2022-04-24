@@ -1,4 +1,7 @@
-
+// htab_init.c
+// IJC-DU2, 20.04.2022
+// Author: Aliaksei Klimau, FIT
+// Compiled: gcc 7.5.0
 
 
 
@@ -9,7 +12,7 @@
 htab_t *htab_init(size_t size_n) {
 
     htab_t *table;
-    table = malloc (sizeof(htab_t) + size_n * sizeof(struct htab_item));
+    table = malloc(sizeof(htab_t) + size_n * sizeof(struct htab_item*));
 
     table->size = 0;
     table->arr_size = size_n;

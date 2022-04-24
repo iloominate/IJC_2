@@ -1,6 +1,7 @@
-//
-// Created by aliakseiklimau on 4/19/22.
-//
+// htab_erase.c
+// IJC-DU2, 20.04.2022
+// Author: Aliaksei Klimau, FIT
+// Compiled: gcc 7.5.0
 
 #include "htab.h"
 #include "htab_pr.h"
@@ -17,11 +18,11 @@ bool htab_erase(htab_t * table, htab_key_t key)
     if (item == NULL)
         return false;
 
-    if (strcmp(item->pair.key, key) == 0)
+    if (strcmp(item->pair->key, key) == 0)
     {
         table->arr_ptr[index] = item->next;
         table->size--;
-        free((char *) item->pair.key);
+        free((char *) item->pair->key);
         free(item);
         if ((table->size / table->arr_size) < AVG_LEN_MIN)
             htab_resize(table, table->size / 2);
@@ -31,11 +32,11 @@ bool htab_erase(htab_t * table, htab_key_t key)
         item = item->next;
         while (item != NULL)
         {
-            if (strcmp(item->pair.key, key) == 0)
+            if (strcmp(item->pair->key, key) == 0)
             {
                 item_tmp->next = item->next;
                 table->size--;
-                free((char *) item->pair.key);
+                free((char *) item->pair->key);
                 free(item);
                 if ((table->size / table->arr_size) < AVG_LEN_MIN)
                     htab_resize(table, table->size / 2);

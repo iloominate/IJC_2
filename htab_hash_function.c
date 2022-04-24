@@ -1,6 +1,7 @@
-//
-// Created by aliakseiklimau on 4/18/22.
-//
+// htab_hash_function.c
+// IJC-DU2, 20.04.2022
+// Author: Aliaksei Klimau, FIT
+// Compiled: gcc 7.5.0
 
 #include "htab.h"
 #include "htab_pr.h"
